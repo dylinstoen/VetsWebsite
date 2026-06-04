@@ -47,7 +47,7 @@ export default function FooterLinks() {
         </nav>
 
         <p className="mt-5 border-white/20 pt-6 text-sm text-white/60">
-          © {new Date().getFullYear()} Soldier Lethality Alumni Association. All rights reserved.
+          © {new Date().getFullYear()} Vets website. All rights reserved.
         </p>
       </div>
     </footer>
