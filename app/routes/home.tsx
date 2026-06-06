@@ -1,5 +1,4 @@
 import type { Route } from "./+types/home";
-import Navbar from "../welcome/navbar";
 import FeaturedStory from "~/welcome/featuredstory";
 import MoreStories from "~/welcome/morestories";
 import Facts from "~/welcome/facts";
@@ -15,7 +14,6 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   return (
     <main>
-      <Navbar/>
       <FeaturedStory />
       <MoreStories/>
       <Facts />

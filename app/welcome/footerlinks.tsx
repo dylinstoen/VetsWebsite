@@ -7,7 +7,7 @@ export default function FooterLinks() {
       <div className="mx-auto max-w-6xl">
         <nav
           aria-label="Footer navigation"
-          className="grid gap-8 sm:grid-cols-3"
+          className="grid gap-8 sm:grid-cols-3  md:px-10"
         >
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-wide text-white/60">
@@ -46,7 +46,7 @@ export default function FooterLinks() {
           </div>
         </nav>
 
-        <p className="mt-5 border-white/20 pt-6 text-sm text-white/60">
+        <p className="mt-5  md:px-10 border-white/20 pt-6 text-sm text-white/60">
           © {new Date().getFullYear()} Vets website. All rights reserved.
         </p>
       </div>

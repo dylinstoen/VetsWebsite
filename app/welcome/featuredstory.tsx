@@ -10,7 +10,7 @@ type ArticleCardProps = {
 function ArticleCard({ image, title, description, href }: ArticleCardProps) {
   return (
     <>
-      <div className="grid items-center md:grid-cols-14 md:gap-8">
+      <div className="grid items-center md:grid-cols-12 md:gap-8 md:px-10">
         {/* Image */}
         <div className="md:col-start-6 md:col-span-8 md:row-start-1">
           <div className="mx-auto aspect-4/3 w-full max-w-2xl overflow-hidden rounded-t-sm md:rounded-sm">
@@ -40,7 +40,7 @@ function ArticleCard({ image, title, description, href }: ArticleCardProps) {
           </a>
         </article>
       </div>
-      <div className="grid md:grid-cols-14 gap-8 items-center">
+      <div className="grid md:grid-cols-12 md:px-10 gap-8 items-center">
         <div className="mt-1 md:col-start-6 md:col-span-8 md:text-right">
           <p className="text-xs text-gray-700">© WWF-US/Gareth Bentley</p>
         </div>
@@ -56,7 +56,7 @@ export default function FeaturedStory() {
     <>
       <section className="bg-amber-700 px-6 py-10 md:px-10 md:py-16">
         {/* Title container */}
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto md:px-10 max-w-6xl">
           <div className="grid gap-8 md:grid-cols-12">
             <div className="md:col-span-12 xl:col-span-10">
               <h1 className="text-pretty text-3xl leading-10 text-gray-900 md:text-5xl md:leading-tight">

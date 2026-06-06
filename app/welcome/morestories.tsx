@@ -53,7 +53,7 @@ function MiniArticleCard({
     return (
         <a
             href={href}
-            className={`group grid grid-rows-subgrid row-span-3 gap-0 no-underline md:col-span-4 ${className}`}
+            className={`group block h-full no-underline`}
         >
             {/* Image */}
             <div className="row-start-1 aspect-4/3 overflow-hidden rounded-sm bg-gray-200">
@@ -110,11 +110,11 @@ function getCardSpanClass(index: number, totalCards: number) {
     return "md:col-span-6";
 }
 export default function MoreStories() {
-    const storiesPage = "./"
+    const storiesPage = "./stories"
     return (
         <section className="bg-green-400 px-6 py-10 md:px-10 md:py-16">
             <div className="mx-auto max-w-6xl">
-                <div className="grid gap-8 md:grid-cols-12">
+                <div className="grid gap-8 md:grid-cols-12 md:px-10">
                     <div className="md:col-span-8">
                         <h1 className="text-pretty text-3xl leading-10 text-gray-900 md:text-5xl md:leading-tight">
                             <b>Our work</b>
@@ -134,15 +134,16 @@ export default function MoreStories() {
                         </a>
                     </div>
                 </div>
-                <div className="mt-10 grid gap-8 md:grid-cols-12">
+                <ul className="mt-10 grid gap-8 md:grid-cols-12  md:px-10">
                     {stories.map((story, index) => (
-                        <MiniArticleCard
-                            key={story.href}
-                            {...story}
+                        <li
+                            key={story.title}
                             className={getCardSpanClass(index, stories.length)}
-                        />
+                        >
+                            <MiniArticleCard {...story} />
+                        </li>
                     ))}
-                </div>
+                </ul>
             </div>
         </section>
     );
