@@ -1,13 +1,14 @@
 export default function FooterLinks() {
-    const DonateLink = "./";
-    const ConnectLink = "./";
-    const AboutLink = "./"
+  const DonateLink = "./";
+  const ConnectLink = "./";
+  const AboutLink = "./";
+
   return (
-    <footer className="bg-blue-950 px-6 py-12 text-white md:px-10 md:py-16">
-      <div className="mx-auto max-w-6xl">
+    <footer className="bg-blue-950 py-12 text-white md:py-16">
+      <div className="mx-auto max-w-360 px-6 md:px-12 lg:px-20">
         <nav
           aria-label="Footer navigation"
-          className="grid gap-8 sm:grid-cols-3  md:px-10"
+          className="grid gap-8 sm:grid-cols-3"
         >
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-wide text-white/60">
@@ -46,7 +47,7 @@ export default function FooterLinks() {
           </div>
         </nav>
 
-        <p className="mt-5  md:px-10 border-white/20 pt-6 text-sm text-white/60">
+        <p className="mt-5 border-t border-white/20 pt-6 text-sm text-white/60">
           © {new Date().getFullYear()} Vets website. All rights reserved.
         </p>
       </div>

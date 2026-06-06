@@ -10,10 +10,10 @@ type ArticleCardProps = {
 function ArticleCard({ image, title, description, href }: ArticleCardProps) {
   return (
     <>
-      <div className="grid items-center md:grid-cols-12 md:gap-8 md:px-10">
+      <div className="grid items-center md:grid-cols-12 md:gap-8">
         {/* Image */}
-        <div className="md:col-start-6 md:col-span-8 md:row-start-1">
-          <div className="mx-auto aspect-4/3 w-full max-w-2xl overflow-hidden rounded-t-sm md:rounded-sm">
+        <div className="md:col-start-6 md:col-span-7 md:row-start-1">
+          <div className="mx-auto aspect-4/3 w-full overflow-hidden rounded-t-sm md:rounded-sm">
             <img
               src={image}
               alt={title}
@@ -23,7 +23,7 @@ function ArticleCard({ image, title, description, href }: ArticleCardProps) {
         </div>
 
         {/* Text card */}
-        <article className="relative z-10 bg-white p-6 md:col-start-1 md:col-span-6 md:row-start-1 md:rounded-sm rounded-b-sm md:p-10">
+        <article className="relative z-10 rounded-b-sm bg-white p-6 md:col-start-1 md:col-span-6 md:row-start-1 md:rounded-sm md:p-10">
           <h2 className="text-xl font-bold leading-relaxed text-gray-900 md:text-2xl">
             {title}
           </h2>
@@ -40,37 +40,35 @@ function ArticleCard({ image, title, description, href }: ArticleCardProps) {
           </a>
         </article>
       </div>
-      <div className="grid md:grid-cols-12 md:px-10 gap-8 items-center">
-        <div className="mt-1 md:col-start-6 md:col-span-8 md:text-right">
+
+      <div className="grid gap-8 md:grid-cols-12">
+        <div className="mt-1 md:col-start-6 md:col-span-7 md:text-right">
           <p className="text-xs text-gray-700">© WWF-US/Gareth Bentley</p>
         </div>
       </div>
     </>
-
-
   );
 }
 
 export default function FeaturedStory() {
   return (
     <>
-      <section className="bg-amber-700 px-6 py-10 md:px-10 md:py-16">
-        {/* Title container */}
-        <div className="mx-auto md:px-10 max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-12">
-            <div className="md:col-span-12 xl:col-span-10">
-              <h1 className="text-pretty text-3xl leading-10 text-gray-900 md:text-5xl md:leading-tight">
-                <b>Our mission</b>
-                <span className="text-white">
-                  {" "}is to build a future which our vets can be supported
-                </span>
-              </h1>
-            </div>
+    <section className="bg-amber-700 py-10 md:py-16">
+      <div className="mx-auto max-w-360 px-6 md:px-12 lg:px-20">
+        {/* Title */}
+        <div className="grid gap-8 md:grid-cols-12">
+          <div className="md:col-span-12 xl:col-span-10">
+            <h1 className="text-pretty text-3xl leading-10 text-gray-900 md:text-5xl md:leading-tight">
+              <b>Our mission</b>
+              <span className="text-white">
+                {" "}is to build a future which our vets can be supported
+              </span>
+            </h1>
           </div>
         </div>
 
-        {/* Article container */}
-        <div className="mx-auto mt-12 max-w-6xl md:mt-16">
+        {/* Article */}
+        <div className="mt-12 md:mt-16">
           <ArticleCard
             image={BisonImage}
             title="Namibia for Life"
@@ -78,7 +76,8 @@ export default function FeaturedStory() {
             href="./"
           />
         </div>
-      </section>
+      </div>
+    </section>
     </>
   );
 }

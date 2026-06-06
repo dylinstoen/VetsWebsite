@@ -110,41 +110,43 @@ function getCardSpanClass(index: number, totalCards: number) {
     return "md:col-span-6";
 }
 export default function MoreStories() {
-    const storiesPage = "./stories"
-    return (
-        <section className="bg-green-400 px-6 py-10 md:px-10 md:py-16">
-            <div className="mx-auto max-w-6xl">
-                <div className="grid gap-8 md:grid-cols-12 md:px-10">
-                    <div className="md:col-span-8">
-                        <h1 className="text-pretty text-3xl leading-10 text-gray-900 md:text-5xl md:leading-tight">
-                            <b>Our work</b>
-                            <span className="text-white">
-                                {" "}to reverse nature loss and conserve biodiversity has never been more urgent
-                            </span>
-                        </h1>
-                    </div>
+  const storiesPage = "./stories";
 
-                    <div className="md:col-span-2 md:col-start-11 md:flex md:items-end md:justify-end">
-                        <a
-                            href={storiesPage}
-                            className="group inline-flex items-center justify-center rounded-full border border-gray-900 px-6 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white focus-visible:bg-gray-900 focus-visible:text-white"
-                        >
-                            Stories
-                            <ArrowRightIcon className="ml-2 size-4 shrink-0 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-                        </a>
-                    </div>
-                </div>
-                <ul className="mt-10 grid gap-8 md:grid-cols-12  md:px-10">
-                    {stories.map((story, index) => (
-                        <li
-                            key={story.title}
-                            className={getCardSpanClass(index, stories.length)}
-                        >
-                            <MiniArticleCard {...story} />
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
-    );
+  return (
+    <section className="bg-green-400 py-10 md:py-16">
+      <div className="mx-auto max-w-360 px-6 md:px-12 lg:px-20">
+        <div className="grid gap-8 md:grid-cols-12">
+          <div className="md:col-span-8">
+            <h1 className="text-pretty text-3xl leading-10 text-gray-900 md:text-5xl md:leading-tight">
+              <b>Our work</b>
+              <span className="text-white">
+                {" "}to reverse nature loss and conserve biodiversity has never been more urgent
+              </span>
+            </h1>
+          </div>
+
+          <div className="md:col-span-2 md:col-start-11 md:flex md:items-end md:justify-end">
+            <a
+              href={storiesPage}
+              className="group inline-flex items-center justify-center rounded-full border border-gray-900 px-6 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white focus-visible:bg-gray-900 focus-visible:text-white"
+            >
+              Stories
+              <ArrowRightIcon className="ml-2 size-4 shrink-0 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+            </a>
+          </div>
+        </div>
+
+        <ul className="mt-10 grid gap-8 md:grid-cols-12">
+          {stories.map((story, index) => (
+            <li
+              key={story.title}
+              className={getCardSpanClass(index, stories.length)}
+            >
+              <MiniArticleCard {...story} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
 }
