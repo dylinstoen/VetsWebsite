@@ -1,7 +1,7 @@
 
 import minicard1 from "../images/minicard1.webp";
 import minicard2 from "../images/minicard2.webp";
-import minicard3 from "../images/minicard1.webp";
+import minicard3 from "../images/minicard3.webp";
 
 type NewsArticle = {
     title: string;
@@ -14,15 +14,14 @@ type NewsArticle = {
 
 const newsArticles: NewsArticle[] = [
     {
-        title:
-            "In the Yucatan, the women known as Las Vecinas find economic opportunity and a connection to Mayan culture with stingless bees",
-        href: "/news/stories/in-the-yucatan-stingless-bees-provide-sustainable-livelihoods-and-a-connection-to-mayan-culture/",
+        title: "In the Yucatan, the women known as Las Vecinas find economic opportunity and a connection to Mayan culture with stingless bees",
+        href: "./",
         image: minicard1,
         imageCredit: "© WWF-US / Alejandro Prieto",
     },
     {
         title: "Rebuilding after disasters",
-        href: "/news/stories/rebuilding-after-disasters-the-hidden-environmental-cost-of-construction/",
+        href: "./",
         image: minicard2,
         imageCredit: "© WWF / Anita van Breda",
         date: "June 1, 2026",
@@ -30,7 +29,7 @@ const newsArticles: NewsArticle[] = [
     },
     {
         title: "Namibia for Life",
-        href: "/news/stories/namibia-for-life/",
+        href: "./",
         image: minicard3,
         imageCredit: "© WWF-US/Gareth Bentley",
         date: "May 20, 2026",
@@ -105,7 +104,7 @@ export default function Pages() {
                 <div className="mx-auto max-w-5xl">
                     <ul className="w-full divide-y divide-gray-300">
                         {newsArticles.map((article) => (
-                            <NewsArticleItem key={article.href} article={article} />
+                            <NewsArticleItem key={article.title} article={article} />
                         ))}
                     </ul>
                 </div>
