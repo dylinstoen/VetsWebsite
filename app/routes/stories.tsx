@@ -41,7 +41,7 @@ function NewsArticleItem({ article }: { article: NewsArticle }) {
     return (
         <li className="flex flex-col-reverse gap-6 border-b border-gray-300 py-10 first:pt-0 last:border-b-0 last:pb-0 md:grid md:grid-cols-12">
             <div className="flex flex-col justify-center gap-3 md:order-2 md:col-span-5 md:col-start-8">
-                <h2 className="text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
+                <h2 className="text-2xl font-bold leading-tight text-white">
                     <a
                         href={article.href}
                         className="transition hover:text-blue-700"

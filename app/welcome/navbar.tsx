@@ -97,8 +97,8 @@ export default function Navbar() {
         };
     }, []);
 
-    const contactPage = "/";
-    const aboutPage = "/";
+    const contactPage = "/contact";
+    const aboutPage = "/about";
     const donatePage = "/";
     const giftPage = "/";
 

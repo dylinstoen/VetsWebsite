@@ -17,7 +17,6 @@ export default function Home() {
       <FeaturedStory />
       <MoreStories/>
       <Facts />
-      <FooterLinks/>
     </main>
   );
 }

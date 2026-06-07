@@ -4,6 +4,7 @@ export default function FooterLinks() {
   const AboutLink = "./";
 
   return (
+    
     <footer className="bg-blue-950 py-12 text-white md:py-16">
       <div className="mx-auto max-w-360 px-6 md:px-12 lg:px-20">
         <nav

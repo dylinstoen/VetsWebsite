@@ -1,4 +1,4 @@
-export function About() {
+export function Contact() {
     return (
         <section className="bg-yellow-950">
             <header>
@@ -7,11 +7,11 @@ export function About() {
                         <div className="grid grid-cols-12 gap-8">
                             <div className="col-span-12 lg:col-span-11">
                                 <h1 className="text-7xl font-bold text-gray-300">
-                                    About us
+                                    Contact
                                 </h1>
 
                                 <p className="mt-4 text-lg text-gray-400">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores eius sapiente sed asperiores iste reiciendis. Dolorum adipisci voluptate aperiam nulla tempora corporis facere obcaecati molestias excepturi quod! Dignissimos, natus.
+                                    Submit a general question to our support team or explore all options below
                                 </p>
                             </div>
                         </div>
@@ -22,10 +22,11 @@ export function About() {
     );
 }
 
-export default function AboutUs() {
+export default function ContactPage() {
     return (
         <main>
-            <About/>
+            <Contact />
+
         </main>
     );
 }
