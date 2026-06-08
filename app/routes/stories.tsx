@@ -1,4 +1,5 @@
 
+import { Link } from "react-router";
 import minicard1 from "../images/minicard1.webp";
 import minicard2 from "../images/minicard2.webp";
 import minicard3 from "../images/minicard3.webp";
@@ -42,12 +43,12 @@ function NewsArticleItem({ article }: { article: NewsArticle }) {
         <li className="flex flex-col-reverse gap-6 border-b border-gray-300 py-10 first:pt-0 last:border-b-0 last:pb-0 md:grid md:grid-cols-12">
             <div className="flex flex-col justify-center gap-3 md:order-2 md:col-span-5 md:col-start-8">
                 <h2 className="text-2xl font-bold leading-tight text-white">
-                    <a
-                        href={article.href}
+                    <Link
+                        to={article.href}
                         className="transition hover:text-blue-700"
                     >
                         {article.title}
-                    </a>
+                    </Link>
                 </h2>
 
                 {article.date && article.datetime && (
@@ -61,7 +62,7 @@ function NewsArticleItem({ article }: { article: NewsArticle }) {
             </div>
 
             <div className="mb-4 md:order-1 md:col-span-6 md:mb-0">
-                <a href={article.href} aria-label={article.title} className="block">
+                <Link to={article.href} aria-label={article.title} className="block">
                     <img
                         src={article.image}
                         alt=""
@@ -72,7 +73,7 @@ function NewsArticleItem({ article }: { article: NewsArticle }) {
                     <p className="mt-2 text-sm text-gray-500">
                         {article.imageCredit}
                     </p>
-                </a>
+                </Link>
             </div>
         </li>
     );

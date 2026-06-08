@@ -1,4 +1,5 @@
 import BisonImage from "../images/elephants.webp";
+import {Link} from "react-router";
 
 type ArticleCardProps = {
   image: string;
@@ -32,12 +33,12 @@ function ArticleCard({ image, title, description, href }: ArticleCardProps) {
             {description}
           </p>
 
-          <a
-            href={href}
+          <Link
+            to={href}
             className="mt-6 inline-flex w-full justify-center rounded-full bg-blue-600 py-3 font-semibold text-white hover:bg-blue-700 md:w-auto md:px-8"
           >
             Read More
-          </a>
+          </Link>
         </article>
       </div>
 

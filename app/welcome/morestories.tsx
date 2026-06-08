@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router";
 import minicard1 from "../images/minicard1.webp";
 import minicard2 from "../images/minicard2.webp";
 import minicard3 from "../images/minicard3.webp";
@@ -51,8 +52,8 @@ function MiniArticleCard({
     className = "",
 }: MiniArticleCardProps) {
     return (
-        <a
-            href={href}
+        <Link
+            to={href}
             className={`group block h-full no-underline`}
         >
             {/* Image */}
@@ -90,7 +91,7 @@ function MiniArticleCard({
                     {description}
                 </p>
             </div>
-        </a>
+        </Link>
     );
 }
 
@@ -126,13 +127,13 @@ export default function MoreStories() {
           </div>
 
           <div className="md:col-span-2 md:col-start-11 md:flex md:items-end md:justify-end">
-            <a
-              href={storiesPage}
+            <Link
+              to={storiesPage}
               className="group inline-flex items-center justify-center rounded-full border border-gray-900 px-6 py-3 font-semibold text-gray-900 transition-colors hover:bg-gray-900 hover:text-white focus-visible:bg-gray-900 focus-visible:text-white"
             >
               Stories
               <ArrowRightIcon className="ml-2 size-4 shrink-0 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </div>
 

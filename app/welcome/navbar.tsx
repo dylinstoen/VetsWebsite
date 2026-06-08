@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
+import { NavLink } from "react-router";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useElementOnScreen } from "../hooks/useElementOnScreen";
 import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 
@@ -18,21 +18,21 @@ function DropDownMenu({ isOpen, contactPage, aboutPage, giftPage, donatePage }: 
     return (
         <div
             className={`fixed left-0 top-20 z-50 grid h-[calc(100vh-5rem)] w-screen content-start gap-3 bg-gray-900 px-10 py-4 transition-opacity duration-300 ease-in-out lg:hidden ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"}`}>
-            <a
-                href={contactPage}
+            <NavLink
+                to={contactPage}
                 className={`py-6 text-2xl text-white transition-all duration-300 ease-in-out ${isOpen ? "translate-y-0 opacity-100 delay-150" : "translate-y-4 opacity-0"
                     }`}
             >
                 Contact
-            </a>
+            </NavLink>
 
-            <a
-                href={aboutPage}
+            <NavLink
+                to={aboutPage}
                 className={`py-6 text-2xl text-white transition-all duration-300 ease-in-out ${isOpen ? "translate-y-0 opacity-100 delay-150" : "translate-y-4 opacity-0"
                     }`}
             >
                 About Us
-            </a>
+            </NavLink>
 
             <a
                 href={donatePage}
@@ -113,14 +113,14 @@ export default function Navbar() {
                 >
                     {/* Logo */}
                     <div className="col-span-3 flex items-center justify-start md:col-span-2">
-                        <a href="/" className="inline-block w-fit">
+                        <NavLink to="/" className="inline-block w-fit">
                             <img
                                 src={logo}
                                 alt="Logo"
                                 className={`w-auto transition-[height] duration-300 ${shouldShrink ? "h-9" : "h-12"
                                     }`}
                             />
-                        </a>
+                        </NavLink>
                     </div>
 
                     {/* Right Side: Gift, Donate, Contact, About, Hamburger */}
@@ -128,25 +128,25 @@ export default function Navbar() {
                         {/* Gift / Donate */}
                         <div className="flex items-center gap-2 md:gap-4">
                             <HideWhenMenuOpen isMenuOpen={isMenuOpen}>
-                                <a
-                                    href={donatePage}
+                                <NavLink
+                                    to={donatePage}
                                     className={`inline-flex rounded-full bg-blue-700 px-5 py-2 text-lg font-semibold text-white transition-all duration-300 hover:bg-blue-800 md:px-10 ${shouldShrink ? "max-md:scale-75 md:py-1" : "max-md:scale-100 md:py-3"
                                         }`}
                                 >
                                     Donate
-                                </a>
+                                </NavLink>
                             </HideWhenMenuOpen>
                         </div>
 
                         {/* Contact / About / Hamburger */}
                         <div className="flex items-center gap-6">
-                            <a href={contactPage} className="hidden text-lg font-semibold text-white lg:flex">
+                            <NavLink to={contactPage} className="hidden text-lg font-semibold text-white lg:flex">
                                 Contact
-                            </a>
+                            </NavLink>
 
-                            <a href={aboutPage} className="hidden text-lg font-semibold text-white lg:flex">
+                            <NavLink to={aboutPage} className="hidden text-lg font-semibold text-white lg:flex">
                                 About Us
-                            </a>
+                            </NavLink>
 
                             <AnimatedMenuButton
                                 isOpen={isMenuOpen}

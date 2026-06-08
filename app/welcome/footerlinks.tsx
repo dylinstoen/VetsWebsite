@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function FooterLinks() {
   const DonateLink = "./";
   const ConnectLink = "./";
@@ -15,36 +17,36 @@ export default function FooterLinks() {
             <p className="mb-3 text-sm font-bold uppercase tracking-wide text-white/60">
               Support
             </p>
-            <a
-              href={DonateLink}
+            <Link
+              to={DonateLink}
               className="text-lg font-semibold hover:text-blue-200 hover:underline"
             >
               Donate
-            </a>
+            </Link>
           </div>
 
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-wide text-white/60">
               Connect
             </p>
-            <a
-              href={ConnectLink}
+            <Link
+              to={ConnectLink}
               className="text-lg font-semibold hover:text-blue-200 hover:underline"
             >
               Contact
-            </a>
+            </Link>
           </div>
 
           <div>
             <p className="mb-3 text-sm font-bold uppercase tracking-wide text-white/60">
               Discover
             </p>
-            <a
-              href={AboutLink}
+            <Link
+              to={AboutLink}
               className="text-lg font-semibold hover:text-blue-200 hover:underline"
             >
               About Us
-            </a>
+            </Link>
           </div>
         </nav>
 
