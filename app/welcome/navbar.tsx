@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import type { ReactNode } from "react";
 
 
@@ -69,17 +69,24 @@ function AnimatedMenuButton({ isOpen, onClick }: { isOpen: boolean, onClick: () 
 
 export default function Navbar() {
     const [isMenuOpen, setMenuOpen] = useState(false);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [location.pathname]);
+
     useEffect(() => {
         document.body.classList.toggle("overflow-hidden", isMenuOpen);
         return () => {
             document.body.classList.remove("overflow-hidden");
         };
-    }, [isMenuOpen])
-    const [shouldShrink, setShouldShrink] = useState(false);
+    }, [isMenuOpen]);
 
-    // Runs once after mount. The state update causes one extra render,
-    // but the empty dependency array prevents an infinite loop.
-    useEffect(() => {
+    const [shouldShrink, setShouldShrink] = useState(false);
+    const [hasMeasuredNavbar, setHasMeasuredNavbar] = useState(false);
+
+    useLayoutEffect(() => {
         function handleScroll() {
             const y = window.scrollY;
 
@@ -89,7 +96,10 @@ export default function Navbar() {
                 return currentlyShrunk;
             });
         }
+
         handleScroll();
+        setHasMeasuredNavbar(true);
+
         window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
@@ -108,24 +118,21 @@ export default function Navbar() {
 
             <header className="md:sticky md:top-0 w-full bg-gray-950 z-50">
                 <nav
-                    className={`relative mx-auto grid max-w-360 grid-cols-12 items-center gap-8 bg-gray-950 lg:px-20 md:px-12 px-6 transition-all duration-300 ${shouldShrink ? "md:py-1" : "py-4 md:py-4"
-                        }`}
+                    className={`relative mx-auto grid max-w-360 grid-cols-12 items-center gap-8 bg-gray-950 lg:px-20 md:px-12 px-6 ${hasMeasuredNavbar ? "transition-all duration-300" : ""
+                        } ${shouldShrink ? "md:py-1" : "py-4 md:py-4"}`}
                 >
-                    {/* Logo */}
                     <div className="col-span-3 flex items-center justify-start md:col-span-2">
                         <NavLink to="/" className="inline-block w-fit">
                             <img
                                 src={logo}
                                 alt="Logo"
-                                className={`w-auto transition-[height] duration-300 ${shouldShrink ? "h-9" : "h-12"
-                                    }`}
+                                className={`w-auto ${hasMeasuredNavbar ? "transition-[height] duration-300" : ""
+                                    } ${shouldShrink ? "h-9" : "h-12"}`}
                             />
                         </NavLink>
                     </div>
 
-                    {/* Right Side: Gift, Donate, Contact, About, Hamburger */}
                     <div className="col-span-9 col-start-4 flex items-center justify-end gap-3 md:gap-7 lg:col-span-10 lg:col-start-3">
-                        {/* Gift / Donate */}
                         <div className="flex items-center gap-2 md:gap-4">
                             <HideWhenMenuOpen isMenuOpen={isMenuOpen}>
                                 <NavLink
@@ -138,7 +145,6 @@ export default function Navbar() {
                             </HideWhenMenuOpen>
                         </div>
 
-                        {/* Contact / About / Hamburger */}
                         <div className="flex items-center gap-6">
                             <NavLink to={contactPage} className="hidden text-lg font-semibold text-white lg:flex">
                                 Contact
