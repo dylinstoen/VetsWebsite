@@ -11,7 +11,14 @@ export function About() {
                                 </h1>
 
                                 <p className="mt-4 text-lg text-gray-400">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores eius sapiente sed asperiores iste reiciendis. Dolorum adipisci voluptate aperiam nulla tempora corporis facere obcaecati molestias excepturi quod! Dignissimos, natus.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores eius sapiente sed asperiores iste reiciendis.
+                                </p>
+                                <p className="mt-4 text-lg text-white">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur dolores eius sapiente sed asperiores iste reiciendis. 
+                                    Dolorum adipisci voluptate aperiam nulla tempora corporis facere obcaecati molestias excepturi quod! Dignissimos, natus. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae eveniet in ipsa optio, 
+                                    explicabo aliquam deleniti eligendi neque aperiam at nemo sunt amet. Magni veniam nemo id voluptatum veritatis. Cumque.
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio quaerat reprehenderit cumque minima error officia magnam expedita. 
+                                    Ex maiores a tempora earum, nemo obcaecati voluptate rem quae dolorum incidunt libero.
                                 </p>
                             </div>
                         </div>

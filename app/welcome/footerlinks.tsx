@@ -2,8 +2,8 @@ import { Link } from "react-router";
 
 export default function FooterLinks() {
   const DonateLink = "./";
-  const ConnectLink = "./";
-  const AboutLink = "./";
+  const ContactLink = "./Contact";
+  const AboutLink = "./About";
 
   return (
     
@@ -30,7 +30,7 @@ export default function FooterLinks() {
               Connect
             </p>
             <Link
-              to={ConnectLink}
+              to={ContactLink}
               className="text-lg font-semibold hover:text-blue-200 hover:underline"
             >
               Contact
