@@ -26,6 +26,25 @@ Create a production build:
 npm run build
 ```
 
+# Admin dashboard
+
+## Development
+
+install:
+```bash
+npm install decap-cms-app --save
+```
+
+Run locally:
+```bash
+npx decap-server
+```
+
+Access local version:
+```bash
+http://localhost:5173/admin/index.html
+```
+
 # Deployment
 
 ## Docker Deployment

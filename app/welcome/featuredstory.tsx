@@ -1,14 +1,16 @@
 import BisonImage from "../images/elephants.webp";
 import {Link} from "react-router";
+import { getFeaturedArticle } from "../lib/articles";
 
 type ArticleCardProps = {
   image: string;
   title: string;
   description: string;
   href: string;
+  credit?: string
 };
 
-function ArticleCard({ image, title, description, href }: ArticleCardProps) {
+function ArticleCard({ image, title, description, href, credit }: ArticleCardProps) {
   return (
     <>
       <div className="grid items-center md:grid-cols-12 md:gap-8">
@@ -44,7 +46,7 @@ function ArticleCard({ image, title, description, href }: ArticleCardProps) {
 
       <div className="grid gap-8 md:grid-cols-12">
         <div className="mt-1 md:col-start-6 md:col-span-7 md:text-right">
-          <p className="text-xs text-gray-700">© WWF-US/Gareth Bentley</p>
+          <p className="text-xs text-gray-700">{credit}</p>
         </div>
       </div>
     </>
@@ -52,6 +54,7 @@ function ArticleCard({ image, title, description, href }: ArticleCardProps) {
 }
 
 export default function FeaturedStory() {
+  const featuredArticle = getFeaturedArticle();
   return (
     <>
     <section className="bg-amber-700 py-10 md:py-16">
@@ -71,10 +74,11 @@ export default function FeaturedStory() {
         {/* Article */}
         <div className="mt-12 md:mt-16">
           <ArticleCard
-            image={BisonImage}
-            title="Namibia for Life"
-            description="A visionary initiative to protect 50 million acres for communities and nature"
-            href="./"
+            image={featuredArticle?.image ?? BisonImage}
+            title={featuredArticle?.title ?? "Untitled Article"}
+            description={featuredArticle?.description ?? "No description available."}
+            credit={featuredArticle?.credit ?? "@ nothing written"}
+            href={featuredArticle?.slug ? `/stories/${featuredArticle.slug}` : "./"}
           />
         </div>
       </div>
