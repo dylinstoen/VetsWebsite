@@ -1,4 +1,4 @@
-import matter from "gray-matter";
+import frontMatter from "front-matter";
 
 type Article = {
   slug: string;
@@ -8,6 +8,14 @@ type Article = {
   credit?: string;
   featured?: boolean;
   body: string;
+};
+
+type ArticleAttributes = {
+  title?: string;
+  description?: string;
+  image?: string;
+  credit?: string;
+  featured?: boolean;
 };
 
 const articleFiles = import.meta.glob("../../content/stories/*.md", {
@@ -22,16 +30,16 @@ function getSlugFromPath(path: string) {
 
 export const articles: Article[] = Object.entries(articleFiles).map(
   ([path, rawFile]) => {
-    const { data, content } = matter(rawFile);
+    const parsed = frontMatter<ArticleAttributes>(rawFile);
 
     return {
       slug: getSlugFromPath(path),
-      title: data.title ?? "",
-      description: data.description ?? "",
-      image: data.image ?? "",
-      credit: data.credit,
-      featured: data.featured ?? false,
-      body: content,
+      title: parsed.attributes.title ?? "",
+      description: parsed.attributes.description ?? "",
+      image: parsed.attributes.image ?? "",
+      credit: parsed.attributes.credit,
+      featured: parsed.attributes.featured ?? false,
+      body: parsed.body,
     };
   }
 );

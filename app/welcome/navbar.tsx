@@ -114,8 +114,6 @@ export default function Navbar() {
 
     return (
         <>
-            <div className="absolute py-4" />
-
             <header className="md:sticky md:top-0 w-full bg-gray-950 z-50">
                 <nav
                     className={`relative mx-auto grid max-w-360 grid-cols-12 items-center gap-8 bg-gray-950 lg:px-20 md:px-12 px-6 ${hasMeasuredNavbar ? "transition-all duration-300" : ""
