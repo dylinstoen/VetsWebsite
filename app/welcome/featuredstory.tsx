@@ -26,8 +26,8 @@ function ArticleCard({ image, title, description, href, credit }: ArticleCardPro
         </div>
 
         {/* Text card */}
-        <article className="relative z-10 rounded-b-sm bg-white p-6 md:col-start-1 md:col-span-6 md:row-start-1 md:rounded-sm md:p-10">
-          <h2 className="text-xl font-bold leading-relaxed text-gray-900 md:text-2xl">
+        <article className="relative z-10 rounded-b-sm bg-white p-6 md:col-start-1 md:col-span-5 md:row-start-1 md:rounded-sm md:p-10">
+          <h2 className="text-2xl font-bold leading-relaxed text-gray-900 md:text-3xl">
             {title}
           </h2>
 
