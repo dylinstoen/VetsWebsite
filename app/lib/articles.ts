@@ -1,11 +1,14 @@
 import frontMatter from "front-matter";
 
-type Article = {
+export type Article = {
   slug: string;
   title: string;
   description: string;
+  category: string;
   image: string;
+  publishedAt: string;
   credit?: string;
+  externalUrl?: string;
   featured?: boolean;
   body: string;
 };
@@ -13,8 +16,11 @@ type Article = {
 type ArticleAttributes = {
   title?: string;
   description?: string;
+  category?: string;
   image?: string;
+  publishedAt?: string;
   credit?: string;
+  externalUrl?: string;
   featured?: boolean;
 };
 
@@ -28,21 +34,28 @@ function getSlugFromPath(path: string) {
   return path.split("/").pop()!.replace(".md", "");
 }
 
-export const articles: Article[] = Object.entries(articleFiles).map(
-  ([path, rawFile]) => {
+export const articles: Article[] = Object.entries(articleFiles)
+  .map(([path, rawFile]) => {
     const parsed = frontMatter<ArticleAttributes>(rawFile);
 
     return {
       slug: getSlugFromPath(path),
       title: parsed.attributes.title ?? "",
       description: parsed.attributes.description ?? "",
+      category: parsed.attributes.category ?? "Story",
       image: parsed.attributes.image ?? "",
+      publishedAt: parsed.attributes.publishedAt ?? "",
       credit: parsed.attributes.credit,
+      externalUrl: parsed.attributes.externalUrl,
       featured: parsed.attributes.featured ?? false,
       body: parsed.body,
     };
-  }
-);
+  })
+  .sort((a, b) => {
+    const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return bTime - aTime;
+  });
 
 export function getArticleBySlug(slug: string | undefined) {
   return articles.find((article) => article.slug === slug);
