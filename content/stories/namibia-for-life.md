@@ -1,10 +1,12 @@
 ---
 title: Namibia for Life
 description: A visionary initiative to protect 50 million acres for communities and nature
+category: Story
 image: /images/uploads/bison.webp
 credit: © WWF-US/Gareth Bentley
 publishedAt: "2026-05-20"
 featured: true
+moreStories: true
 ---
 Namibia is a country of vast and dramatic landscapes, from the rocky outcrops of the Skeleton Coast to the white salt expanse of Etosha and the towering rust-red dunes of the Namib Sand Sea. Sparsely populated and rich in wildlife, this arid country has emerged as an oasis of community-led conservation that puts management in the hands of rural people.
 

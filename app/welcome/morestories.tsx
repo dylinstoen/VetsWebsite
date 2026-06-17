@@ -75,7 +75,12 @@ function getCardSpanClass(index: number, totalCards: number) {
 }
 export default function MoreStories() {
     const storiesPage = "./stories"
-    const nonFeaturedArticles = articles.filter((article) => !article.featured);
+    const moreStoriesArticles = articles.filter((article) => article.moreStories).sort((a, b) => {
+        const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+        const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+        return bTime - aTime;
+    });;
+
 
     return (
         <section className="bg-green-400 py-10 md:py-16">
@@ -102,10 +107,10 @@ export default function MoreStories() {
                 </div>
 
                 <ul className="mt-10 grid gap-8 md:grid-cols-12">
-                    {nonFeaturedArticles.map((article, index) => (
+                    {moreStoriesArticles.map((article, index) => (
                         <li
                             key={article.slug}
-                            className={getCardSpanClass(index, nonFeaturedArticles.length)}
+                            className={getCardSpanClass(index, moreStoriesArticles.length)}
                         >
                             <MiniArticleCard {...article} />
                         </li>

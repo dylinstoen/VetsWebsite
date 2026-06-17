@@ -1,9 +1,11 @@
 ---
 title: What the water tells me
 description: WWF's Erin Simon on paddling and plastics in the backwaters of tidal Virginia
+category: Story
 image: /images/uploads/minicard2.webp
 credit: © Shutterstock / Wonderful Nature
 featured: false
+moreStories: true
 publishedAt: 2026-06-16
 ---
 There is a particular quality of light on Hull Creek in the early morning — the way it filters through the cypress and tupelo and lands flat on the water — that makes the world feel very still, and very honest.

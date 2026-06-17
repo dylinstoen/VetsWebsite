@@ -10,6 +10,7 @@ export type Article = {
   credit?: string;
   externalUrl?: string;
   featured?: boolean;
+  moreStories?: boolean;
   body: string;
 };
 
@@ -22,6 +23,8 @@ type ArticleAttributes = {
   credit?: string;
   externalUrl?: string;
   featured?: boolean;
+  moreStories?: boolean;
+
 };
 
 const articleFiles = import.meta.glob("../../content/stories/*.md", {
@@ -48,6 +51,7 @@ export const articles: Article[] = Object.entries(articleFiles)
       credit: parsed.attributes.credit,
       externalUrl: parsed.attributes.externalUrl,
       featured: parsed.attributes.featured ?? false,
+      moreStories: parsed.attributes.moreStories ?? false,
       body: parsed.body,
     };
   })
