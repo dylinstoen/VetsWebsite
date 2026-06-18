@@ -24,3 +24,12 @@ collections:
       - { label: "Show in More Stories", name: "moreStories", widget: "boolean", default: false }
       - { label: "Published Date", name: "publishedAt", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD"}
       - { label: "Body", name: "body", widget: "markdown" }
+  - name: "facts"
+    label: "Facts"
+    folder: "content/facts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Order", name: "order", widget: "number", default: 0 }

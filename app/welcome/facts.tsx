@@ -1,27 +1,7 @@
-type FactProp = {
-  title: string;
-  description: string;
-};
+import { facts, type Fact } from "../lib/facts";
 
-const facts: FactProp[] = [
-  {
-    title: "83% to conservation",
-    description:
-      "Your generosity makes our science-based conservation work possible.",
-  },
-  {
-    title: "Nearly 1 million members",
-    description:
-      "Together across the US, donors like you protect clean air, water, and vital natural resources.",
-  },
-  {
-    title: "65 years",
-    description:
-      "WWF has been leading global conservation since our founding in 1961.",
-  },
-];
 
-function FactCard({ title, description }: FactProp) {
+function FactCard({ title, description }: Fact) {
   return (
     <li className="border-b border-white/20 first:[&>div]:pt-0">
       <div className="grid gap-8 py-8 md:grid-cols-12 md:items-center">
@@ -64,11 +44,7 @@ export default function Facts() {
         {/* Facts section */}
         <ul className="mt-15">
           {facts.map((fact) => (
-            <FactCard
-              key={fact.title}
-              title={fact.title}
-              description={fact.description}
-            />
+            <FactCard key={fact.slug} {...fact} />
           ))}
         </ul>
       </div>
