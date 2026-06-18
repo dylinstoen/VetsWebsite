@@ -18,9 +18,9 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Category", name: "category", widget: "select", options: ["News", "Story", "Explainer"], default: "Story" }
       - { label: "External Link", name: "externalUrl", widget: "string", required: false }
-      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Display Image", name: "image", widget: "image" }
       - { label: "Image Credit", name: "credit", widget: "string", required: false }
-      - { label: "Featured Story", name: "featured", widget: "boolean", default: false }
+      - { label: "Show in Featured Story", name: "featured", widget: "boolean", default: false }
       - { label: "Show in More Stories", name: "moreStories", widget: "boolean", default: false }
       - { label: "Published Date", name: "publishedAt", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD"}
       - { label: "Body", name: "body", widget: "markdown" }
