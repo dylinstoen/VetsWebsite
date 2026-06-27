@@ -33,3 +33,101 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Order", name: "order", widget: "number", default: 0 }
+
+  - name: "home"
+    label: "Homepage"
+    files:
+      - name: "featuredSection"
+        label: "Featured Section"
+        file: "content/settings/featured-section.yml"
+        fields:
+          - label: "Headline Text"
+            name: "headline"
+            widget: "string"
+            default: "Our mission is to build a future which our vets can be supported"
+
+          - label: "Background Color"
+            name: "backgroundColor"
+            widget: "color"
+
+          - label: "Text Color"
+            name: "textColor"
+            widget: "color"
+
+      - name: "moreStoriesSection"
+        label: "More Stories Section"
+        file: "content/settings/more-stories-section.yml"
+        fields:
+          - label: "Headline Text"
+            name: "headline"
+            widget: "string"
+            default: "Our work to reverse nature loss and conserve biodiversity has never been more urgent"
+
+          - label: "Background Color"
+            name: "backgroundColor"
+            widget: "color"
+
+          - label: "Text Color"
+            name: "textColor"
+            widget: "color"
+
+      - name: "factsSection"
+        label: "Facts Section"
+        file: "content/settings/facts-section.yml"
+        fields:
+          - label: "Headline Text"
+            name: "headline"
+            widget: "string"
+            default: "Our Impact is transformative"
+
+          - label: "Subheader Text"
+            name: "subheader"
+            widget: "string"
+            default: "Every dollar you give makes a difference for our community."
+
+          - label: "Background Color"
+            name: "backgroundColor"
+            widget: "color"
+
+          - label: "Text Color"
+            name: "textColor"
+            widget: "color"
+
+
+  - name: "contact"
+    label: "Contact Page"
+    files:
+      - name: "contactPage"
+        label: "Contact Page"
+        file: "content/settings/contact-page.yml"
+        fields:
+          - label: "Headline Text"
+            name: "headline"
+            widget: "string"
+            default: "Contact"
+
+          - label: "Subheader Text"
+            name: "subheader"
+            widget: "text"
+            default: "Submit a general question to our support team or explore all options below"
+            
+          - label: "Contact Info"
+            name: "contactInfo"
+            widget: "list"
+            summary: "{{fields.label}}: {{fields.value}}"
+            fields:
+              - label: "Label"
+                name: "label"
+                widget: "string"
+
+              - label: "Value"
+                name: "value"
+                widget: "string"
+              
+              - label: "Link"
+                name: "href"
+                widget: "string"
+                required: false
+
+          
+          

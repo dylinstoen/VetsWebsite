@@ -1,0 +1,7 @@
+headline: Contact
+subheader: Submit a general question to our support team or explore all options below
+contactInfo:
+  - label: Email
+    value: support@example.com
+  - label: Phone
+    value: (555) 555-5555
