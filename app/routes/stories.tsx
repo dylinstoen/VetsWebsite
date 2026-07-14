@@ -12,6 +12,7 @@ function formatDate(date: string) {
     });
 }
 function NewsArticleItem({ article }: { article: Article }) {
+    const image = article.imageMobile || article.image;
     const formattedDate = formatDate(article.publishedAt);
     return (
         <li className="flex flex-col-reverse gap-6 border-b border-gray-300 py-10 first:pt-0 last:border-b-0 last:pb-0 md:grid md:grid-cols-12">
@@ -36,17 +37,23 @@ function NewsArticleItem({ article }: { article: Article }) {
             </div>
 
             <div className="mb-4 md:order-1 md:col-span-6 md:mb-0">
-                <Link to={`/stories/${article.slug}`} aria-label={article.title} className="block">
+                <Link
+                    to={`/stories/${article.slug}`}
+                    aria-label={article.title}
+                    className="block"
+                >
                     <img
-                        src={article.image}
+                        src={image}
                         alt=""
                         className="aspect-4/3 w-full rounded-sm object-cover"
                         loading="lazy"
                     />
 
-                    <p className="mt-2 text-sm text-gray-500">
-                        {article.credit}
-                    </p>
+                    {article.credit && (
+                        <p className="mt-2 text-sm text-gray-500">
+                            {article.credit}
+                        </p>
+                    )}
                 </Link>
             </div>
         </li>

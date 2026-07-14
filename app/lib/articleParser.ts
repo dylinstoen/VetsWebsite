@@ -5,7 +5,11 @@ export type Article = {
   title: string;
   description: string;
   category: string;
+
   image: string;
+  imageMobile?: string;
+  imageDesktop?: string;
+
   publishedAt: string;
   credit?: string;
   externalUrl?: string;
@@ -18,13 +22,16 @@ type ArticleAttributes = {
   title?: string;
   description?: string;
   category?: string;
+
   image?: string;
+  imageMobile?: string;
+  imageDesktop?: string;
+
   publishedAt?: string;
   credit?: string;
   externalUrl?: string;
   featured?: boolean;
   moreStories?: boolean;
-
 };
 
 const articleFiles = import.meta.glob("../../content/stories/*.md", {
@@ -46,7 +53,11 @@ export const articles: Article[] = Object.entries(articleFiles)
       title: parsed.attributes.title ?? "",
       description: parsed.attributes.description ?? "",
       category: parsed.attributes.category ?? "Story",
+
       image: parsed.attributes.image ?? "",
+      imageMobile: parsed.attributes.imageMobile,
+      imageDesktop: parsed.attributes.imageDesktop,
+
       publishedAt: parsed.attributes.publishedAt ?? "",
       credit: parsed.attributes.credit,
       externalUrl: parsed.attributes.externalUrl,
@@ -56,8 +67,14 @@ export const articles: Article[] = Object.entries(articleFiles)
     };
   })
   .sort((a, b) => {
-    const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
-    const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    const aTime = a.publishedAt
+      ? new Date(a.publishedAt).getTime()
+      : 0;
+
+    const bTime = b.publishedAt
+      ? new Date(b.publishedAt).getTime()
+      : 0;
+
     return bTime - aTime;
   });
 

@@ -42,13 +42,11 @@ export default function StoryPage() {
   return (
     <main className=" bg-amber-600">
       <div className="mx-auto max-w-7xl px-6 py-20">
-        {/* Title */}
-        <h1 className="text-6xl font-bold text-white">
+        <h1 className="max-w-4xl text-4xl font-bold text-white">
           {article.title}
         </h1>
 
-        {/* Description */}
-        <div className="mt-8 text-xl leading-relaxed text-white">
+        <div className="mt-8 max-w-4xl text-xl leading-relaxed text-white">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}
@@ -57,13 +55,28 @@ export default function StoryPage() {
           </ReactMarkdown>
         </div>
 
-        {/* Featured Image */}
         <figure className="mt-10">
-          <img
-            src={article.image}
-            alt={article.title}
-            className="aspect-video w-full rounded-sm object-cover"
-          />
+          <picture>
+            {article.imageDesktop && (
+              <source
+                media="(min-width: 1024px)"
+                srcSet={article.imageDesktop}
+              />
+            )}
+
+            {article.imageMobile && (
+              <source
+                media="(max-width: 767px)"
+                srcSet={article.imageMobile}
+              />
+            )}
+
+            <img
+              src={article.image}
+              alt={article.title}
+              className="aspect-video w-full rounded-sm object-cover"
+            />
+          </picture>
 
           {article.credit && (
             <figcaption className="mt-2 text-xs text-white">
@@ -72,8 +85,7 @@ export default function StoryPage() {
           )}
         </figure>
 
-        {/* Body */}
-        <div className="mt-10 text-lg leading-relaxed text-white">
+        <div className="mt-10 max-w-4xl text-lg leading-relaxed text-white">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}

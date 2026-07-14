@@ -18,7 +18,9 @@ collections:
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Category", name: "category", widget: "select", options: ["News", "Story", "Explainer"], default: "Story" }
       - { label: "External Link", name: "externalUrl", widget: "string", required: false }
-      - { label: "Display Image", name: "image", widget: "image" }
+      - { label: "Featured Image", name: "image", widget: "image", hint: "Fallback image if desktop or mobile image is not specified"}
+      - { label: "Featured Image: Desktop mode", name: "imageDesktop", widget: "image", required: false, hint: "Optional image used on screens 1024px and wider"}
+      - { label: "Featured Image: Mobile mode", name: "imageMobile", widget: image, required: false, hint: "Optional image used on screens smaller than 768px"}
       - { label: "Image Credit", name: "credit", widget: "string", required: false }
       - { label: "Show in Featured Story", name: "featured", widget: "boolean", default: false }
       - { label: "Show in More Stories", name: "moreStories", widget: "boolean", default: false }

@@ -2,25 +2,47 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router";
 import { articles, type Article } from "../lib/articleParser";
 
+function isFullWidthCard(index: number, totalCards: number) {
+    const remainder = totalCards % 3;
+    const finalRowStartIndex = totalCards - remainder;
 
-
-function MiniArticleCard(article: Article) {
+    return remainder === 1 && index >= finalRowStartIndex;
+}
+function MiniArticleCard({
+    article,
+    isFullWidth,
+}: {
+    article: Article;
+    isFullWidth: boolean;
+}) {
     const href = article.externalUrl || `/stories/${article.slug}`;
     const isExternal = Boolean(article.externalUrl);
 
     const cardContent = (
         <>
             <div className="row-start-1 aspect-4/3 overflow-hidden rounded-sm bg-gray-200">
-                <img
-                    src={article.image}
-                    alt={article.title}
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+                <picture className="block h-full w-full">
+                    {isFullWidth && article.imageDesktop && (
+                        <source
+                            media="(min-width: 768px)"
+                            srcSet={article.imageDesktop}
+                        />
+                    )}
+
+                    <img
+                        src={article.imageMobile ?? article.image}
+                        alt={article.title}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                    />
+                </picture>
             </div>
 
             {article.credit && (
                 <div className="row-start-2 mt-1">
-                    <p className="text-xs text-gray-700">{article.credit}</p>
+                    <p className="text-xs text-gray-700">
+                        {article.credit}
+                    </p>
                 </div>
             )}
 
@@ -33,7 +55,9 @@ function MiniArticleCard(article: Article) {
                     {article.title}
                 </h3>
 
-                <p className="pt-2 text-gray-800">{article.description}</p>
+                <p className="pt-2 text-gray-800">
+                    {article.description}
+                </p>
             </div>
         </>
     );
@@ -52,11 +76,15 @@ function MiniArticleCard(article: Article) {
     }
 
     return (
-        <Link to={href} className="group block h-full no-underline">
+        <Link
+            to={href}
+            className="group block h-full no-underline"
+        >
             {cardContent}
         </Link>
     );
 }
+
 
 function getCardSpanClass(index: number, totalCards: number) {
     const cardsPerRow = 3;
@@ -107,14 +135,27 @@ export default function MoreStories() {
                 </div>
 
                 <ul className="mt-10 grid gap-8 md:grid-cols-12">
-                    {moreStoriesArticles.map((article, index) => (
-                        <li
-                            key={article.slug}
-                            className={getCardSpanClass(index, moreStoriesArticles.length)}
-                        >
-                            <MiniArticleCard {...article} />
-                        </li>
-                    ))}
+                    {moreStoriesArticles.map((article, index) => {
+                        const fullWidth = isFullWidthCard(
+                            index,
+                            moreStoriesArticles.length
+                        );
+
+                        return (
+                            <li
+                                key={article.slug}
+                                className={getCardSpanClass(
+                                    index,
+                                    moreStoriesArticles.length
+                                )}
+                            >
+                                <MiniArticleCard
+                                    article={article}
+                                    isFullWidth={fullWidth}
+                                />
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
         </section>
