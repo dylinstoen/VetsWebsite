@@ -41,22 +41,14 @@ export default function StoryPage() {
 
   return (
     <main className=" bg-amber-600">
-      <div className="mx-auto max-w-3xl px-6 py-20 bg-amber-950">
-        <img
-          src={article.image}
-          alt={article.title}
-          className="aspect-video w-full rounded-sm object-cover"
-        />
-
-        {article.credit && (
-          <p className="mt-2 text-xs text-white">{article.credit}</p>
-        )}
-
-        <h1 className="mt-8 text-4xl font-bold text-white">
+      <div className="mx-auto max-w-7xl px-6 py-20">
+        {/* Title */}
+        <h1 className="text-6xl font-bold text-white">
           {article.title}
         </h1>
 
-        <div className="mt-4 text-lg leading-relaxed text-white">
+        {/* Description */}
+        <div className="mt-8 text-xl leading-relaxed text-white">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}
@@ -65,7 +57,23 @@ export default function StoryPage() {
           </ReactMarkdown>
         </div>
 
-        <div className="mt-8 leading-relaxed text-white">
+        {/* Featured Image */}
+        <figure className="mt-10">
+          <img
+            src={article.image}
+            alt={article.title}
+            className="aspect-video w-full rounded-sm object-cover"
+          />
+
+          {article.credit && (
+            <figcaption className="mt-2 text-xs text-white">
+              {article.credit}
+            </figcaption>
+          )}
+        </figure>
+
+        {/* Body */}
+        <div className="mt-10 text-lg leading-relaxed text-white">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}
