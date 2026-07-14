@@ -1,6 +1,6 @@
 import BisonImage from "../images/elephants.webp";
 import { Link } from "react-router";
-import { getFeaturedArticle } from "../lib/articles";
+import { getFeaturedArticle } from "../lib/articleParser";
 
 type ArticleCardProps = {
   image: string;

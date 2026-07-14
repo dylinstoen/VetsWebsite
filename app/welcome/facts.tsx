@@ -1,4 +1,4 @@
-import { facts, type Fact } from "../lib/facts";
+import { facts, type Fact } from "../lib/factParser";
 
 
 function FactCard({ title, description }: Fact) {

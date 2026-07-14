@@ -1,6 +1,6 @@
 
 import { Link } from "react-router";
-import { articles, type Article } from "../lib/articles";
+import { articles, type Article } from "../lib/articleParser";
 
 function formatDate(date: string) {
     if (!date) return "";

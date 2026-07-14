@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Components } from "react-markdown";
-import { getArticleBySlug } from "../lib/articles";
+import { getArticleBySlug } from "../lib/articleParser";
 
 const markdownComponents: Components = {
   a: ({ href, children }) => (

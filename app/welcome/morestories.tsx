@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router";
-import { articles, type Article } from "../lib/articles";
+import { articles, type Article } from "../lib/articleParser";
 
 
 
