@@ -21,6 +21,13 @@ const markdownComponents: Components = {
       {children}
     </p>
   ),
+    img: ({ src, alt }) => (
+    <img
+      src={src ?? ""}
+      alt={alt ?? ""}
+      className="mx-auto my-8 max-w-full rounded-sm"
+    />
+  ),
 };
 
 export default function StoryPage() {
@@ -85,7 +92,7 @@ export default function StoryPage() {
           )}
         </figure>
 
-        <div className="mt-10 max-w-4xl text-lg leading-relaxed text-white">
+        <div className="mx-auto mt-10 max-w-4xl text-lg leading-relaxed text-white">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={markdownComponents}
